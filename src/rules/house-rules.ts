@@ -3,8 +3,9 @@ import { isRecord } from "./abilities";
 export type MagicSystem = "SLOTS" | "POINTS";
 export type SharedHouseRules = { attunementLimit: number | null; magicSystem: MagicSystem | null };
 export type PersHouseRules = SharedHouseRules & { darkvisionRange: number | null };
-/// isDamageConfirmedByGm — шкода гравців чекає майстра; у старих кампаніях поля немає, і це вмикає перевірку.
-export type CampaignHouseRules = SharedHouseRules & { damageTypes: string[]; isDamageConfirmedByGm: boolean };
+/// isDamageConfirmedByGm — шкода гравців чекає майстра, лише якщо він сам це ввімкнув.
+/// isAttackTrayShown, isDamageAutoRolled — типові кидки атаки в кімнаті; гравець може змінити їх для себе.
+export type CampaignHouseRules = SharedHouseRules & { damageTypes: string[]; isDamageConfirmedByGm: boolean; isAttackTrayShown: boolean; isDamageAutoRolled: boolean };
 export type HouseRules = { attunementLimit: number | null; magicSystem: MagicSystem; damageTypes: string[] };
 
 export const ATTUNEMENT_LIMIT_MAX = 20;
@@ -30,7 +31,7 @@ function readWholeInRange(value: unknown, min: number, max: number): number | nu
 
 export function parseCampaignHouseRules(value: unknown): CampaignHouseRules {
   const raw = isRecord(value) ? value : {};
-  return { ...parseSharedHouseRules(raw), damageTypes: parseCustomDamageTypes(raw.damageTypes), isDamageConfirmedByGm: raw.isDamageConfirmedByGm !== false };
+  return { ...parseSharedHouseRules(raw), damageTypes: parseCustomDamageTypes(raw.damageTypes), isDamageConfirmedByGm: raw.isDamageConfirmedByGm === true, isAttackTrayShown: raw.isAttackTrayShown !== false, isDamageAutoRolled: raw.isDamageAutoRolled !== false };
 }
 
 export function parseCustomDamageTypes(value: unknown): string[] {

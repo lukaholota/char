@@ -5,7 +5,7 @@ import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib
 import type { D20Mode } from "@/rules/dice-roll";
 import { diceService } from "./diceService";
 import { rollAfterHeldTrayResize } from "./dice-tray-layout";
-import { buildRollOutcome, countMainDice, isFlatAction, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
+import { buildPendingRollMeta, buildRollOutcome, isFlatAction, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
 import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "@/lib/components/game/build-game-roll";
 import { announceGameRollStart, captureGameRollTarget, publishGameRoll, publishTargetSave, settleGameRollStart, type GameRollTarget } from "@/lib/components/game/game-roll-publisher";
 
@@ -90,16 +90,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         publishTargetSave(rollContextRef.current, action.targetSave);
         return;
       }
-      const meta: PendingRollMeta = {
-        actionKey: action.key,
-        label: action.label,
-        bonus: action.bonus,
-        d20Mode: action.isD20 ? d20Mode : null,
-        mainDiceCount: countMainDice(action, d20Mode),
-        extraDice: action.extraDice ?? [],
-        ...(action.damageType ? { damageType: action.damageType } : {}),
-        ...(action.bonusParts?.length ? { bonusParts: action.bonusParts } : {}),
-      };
+      const meta = buildPendingRollMeta(action, d20Mode);
       const context = rollContextRef.current;
       holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget, context.fromCreatureId), context, action, d20Mode } : null);
       setActiveActionKey(action.key);

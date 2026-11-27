@@ -3,7 +3,7 @@
 import { toast } from "sonner";
 import { create } from "zustand";
 import { readHeroTargetPersId, readRollTargetCreatureId } from "@/lib/stores/gameSessionStore";
-import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib/stores/diceUIStore";
+import type { DiceRollAction, DiceRollContext } from "@/lib/stores/diceUIStore";
 import { findGameRollKind } from "@/rules/game-roll-target";
 import { addTargetPick, groupTargetPicks, removeTargetPick, splitRollTargets, toggleUniqueTargetPick, type RollTargetRef, type TargetPickGroup } from "@/rules/map-target-picks";
 import type { GameSessionView } from "@/server/db/game-sessions";
@@ -12,6 +12,7 @@ import type { HeroRollKind } from "@/rules/game-roll-hero-target";
 import { findMapRoomId, showMapForPicking } from "./area-cast";
 import { findActionRollKind, isAimedAtHeroes } from "./build-game-roll";
 import { useGameSessionLiveStore } from "./game-session-live-store";
+import { openRollOrRollQuietly } from "./quiet-attack-roll";
 
 type TargetPicking = { sessionId: number; maxPicks: number; picks: RollTargetRef[] };
 /// isHeal — лікування: на мапі обирають лише героїв.
@@ -75,7 +76,7 @@ export function confirmMapTargets(view: GameSessionView, picks?: RollTargetRef[]
   if (!targeting || !("roll" in targeting)) return;
   useMapTargetingStore.setState({ targeting: null });
   const [first] = buildTargetRolls({ ...targeting, picks: picks ?? targeting.picks }, (target) => findTargetName(view, target));
-  useDiceUIStore.getState().openRoll(first);
+  openRollOrRollQuietly(first);
 }
 
 /// Кожен промінь — свій кидок атаки й шкоди; дротики в одну ціль кидаються разом, бо влучають без атаки.

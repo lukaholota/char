@@ -1,10 +1,12 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { GameRollVisibility } from "@/rules/game-roll";
+import type { CampaignHouseRules } from "@/rules/house-rules";
 
 export const GAME_SESSION_STORE_KEY = "holota-active-game-session";
 
 type ActiveGameSession = { id: number; name: string };
+export type RollPreferences = Pick<CampaignHouseRules, "isAttackTrayShown" | "isDamageAutoRolled">;
 export type PickableRollVisibility = Extract<GameRollVisibility, "PUBLIC" | "GM" | "SECRET">;
 
 type GameSessionState = {
@@ -17,8 +19,8 @@ type GameSessionState = {
   /// Відкрита сторінка кімнати: вкладка слухає її, навіть коли кімната в архіві й кидки туди не йдуть.
   viewedRoomId: number | null;
   isSoundOn: boolean;
-  /// Після влучання лоток сам кидає шкоду; вимкнено — гравець тисне «Шкода» сам.
-  isDamageAutoRolled: boolean;
+  /// Власний вибір гравця на цьому пристрої; чого тут немає — береться з правил кампанії.
+  rollChoices: Partial<RollPreferences>;
   /// Гучність звуків сцени (ефекти й фон від майстра) на цьому пристрої, 0–100; кидки вимикає isSoundOn окремо.
   sceneVolume: number;
   /// На компʼютері журнал може жити внизу бічної колонки під листом, а не окремою вкладкою.
@@ -53,7 +55,7 @@ export const useGameSessionStore = create<GameSessionState>()(
       isHydrated: false,
       viewedRoomId: null,
       isSoundOn: true,
-      isDamageAutoRolled: true,
+      rollChoices: {},
       sceneVolume: 70,
       isJournalDocked: false,
       sidePanelWidth: DEFAULT_SIDE_PANEL_WIDTH,
@@ -85,7 +87,7 @@ export const useGameSessionStore = create<GameSessionState>()(
     {
       name: GAME_SESSION_STORE_KEY,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isDamageAutoRolled, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isDamageAutoRolled, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
+      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, rollChoices, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, rollChoices, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
       onRehydrateStorage: (initial) => () => initial.markHydrated(),
     },
   ),

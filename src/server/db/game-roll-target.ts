@@ -2,7 +2,7 @@ import { randomInt } from "node:crypto";
 import { Prisma } from "@prisma/client";
 import { findDamageDefense, resolveCreatureSave, type SaveEffect } from "@/rules/creature-save";
 import { resolveTypedDamage, toCreatureDamageType, type DamageDefenseNote } from "@/rules/damage-parts";
-import { buildDamageReviewParts, type DamageReviewPart } from "@/rules/damage-review";
+import { buildDamageReview, type DamageReview } from "@/rules/damage-review";
 import { resolveHeroSave } from "@/rules/hero-save";
 import type { GameRollSavesDraft, SaveDamageParts, StoredSaveRow, StoredSaves } from "@/rules/game-roll-saves";
 import { buildMapCreatureViews } from "@/rules/game-map-creatures";
@@ -52,9 +52,9 @@ const CREATURE_ROW_SELECT = {
 /// Ціль — лише істота активної сцени, що стоїть на мапі: підготовка майстра (під мапою чи в іншій сцені) не видає себе в журналі.
 /// Істота зникла або знята з мапи, поки кидок чекав у черзі, — кидок лишається без цілі; чужа кімната — відмова.
 /// damageDefenses — опори цілі, що змінили шкоду: їх бачать усі в журналі.
-/// reviewParts — шкода чекає майстра: хіти не знято, захисти цілі лише запропоновано.
+/// review — шкода чекає майстра: хіти не знято, захисти цілі лише запропоновано.
 /// tempHpChange — скільки шкоди забрали тимчасові хіти: скасування повертає їх окремо від звичайних.
-export type RolledTarget = { columns: RollTargetEffect; damage: number; damageDefenses: DamageDefenseNote[]; tempHpChange?: number; reviewParts?: DamageReviewPart[] };
+export type RolledTarget = { columns: RollTargetEffect; damage: number; damageDefenses: DamageDefenseNote[]; tempHpChange?: number; review?: DamageReview };
 
 export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: number, target: GameRollTargetDraft, roll: GameRoll, isReviewed = false): Promise<GameSessionResult<RolledTarget | null>> {
   const rows = await tx.gameMapCreature.findMany({ where: { gameSessionId: sessionId, scene: { activeIn: { some: { id: sessionId } } } }, select: CREATURE_ROW_SELECT });
@@ -70,7 +70,7 @@ export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: n
     return { ok: true, value: { columns: { ...base, targetAc, isHit: findAttackHit(roll, roll.total, targetAc), hpBefore: null, hpChange: null }, damage: 0, damageDefenses: [] } };
   }
   const findDefense = (damageType: Parameters<typeof toCreatureDamageType>[0]) => (statblock ? findDamageDefense(statblock, toCreatureDamageType(damageType)) : null);
-  if (isReviewed) return { ok: true, value: { columns: { ...base, targetAc: null, isHit: null, hpBefore: null, hpChange: null }, damage: 0, damageDefenses: [], reviewParts: buildDamageReviewParts(roll, findDefense) } };
+  if (isReviewed) return { ok: true, value: { columns: { ...base, targetAc: null, isHit: null, hpBefore: null, hpChange: null }, damage: 0, damageDefenses: [], review: buildDamageReview(roll, findDefense) } };
   const { damage, notes } = statblock ? resolveTypedDamage(roll, findDefense) : { damage: roll.total, notes: [] };
   const { tempHpChange, ...change } = await removeHitPoints(tx, sessionId, creature.id, damage, parseCreatureHitPoints(statblock?.hp ?? ""));
   return { ok: true, value: { columns: { ...base, targetAc: null, isHit: null, ...change }, damage, damageDefenses: notes, tempHpChange } };

@@ -12,9 +12,11 @@ const globalForPrisma = globalThis as unknown as {
 // щоб скрипти й тести без `$disconnect` не висіли ці пʼять хвилин перед виходом.
 // `max` 30 замість дефолтних 10: include-и Prisma йдуть паралельно й чекали вільного
 // зʼєднання до 600 мс (Sentry, 2026-11-01); на проді max_connections 100, зайнято ~13.
+// Локальний dev ходить у ту саму продову базу через тунель: його 30 разом з продовими
+// вибили ліміт 100 (2026-11-27, 78 помилок P2037 у гравців) — тож поза продом дефолтні 10.
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  max: 30,
+  max: process.env.NODE_ENV === "production" ? 30 : 10,
   idleTimeoutMillis: 5 * 60_000,
   allowExitOnIdle: true,
 });

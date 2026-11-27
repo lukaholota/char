@@ -15,6 +15,8 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { CampaignHouseRulesEditor, CampaignHouseRulesSummary } from "./CampaignHouseRules";
 import { CampaignCustomContent } from "./CampaignCustomContent";
+import { SwitchRow } from "./MapToolPanels";
+import { chooseRollPreference, useRollPreferences } from "@/lib/components/dice/useRollPreferences";
 
 const MANAGEMENT_BUTTON = "h-12 w-full justify-start gap-3 px-4 text-base";
 
@@ -23,7 +25,29 @@ export function GameRoomManagement({ view }: { view: GameSessionView }) {
     <section aria-labelledby="game-room-management" className={ROOM_CARD}>
       <h2 id="game-room-management" className="font-rpg-display text-lg text-slate-100">Керування кампанією</h2>
       {view.myRole === "GM" ? <GmManagement view={view} /> : <LeaveButton view={view} />}
+      {view.myRole === "GM" || view.isArchived ? null : <MyRollSettings view={view} />}
     </section>
+  );
+}
+
+function MyRollSettings({ view }: { view: GameSessionView }) {
+  const campaign = view.houseRules;
+  const preferences = useRollPreferences(campaign);
+  const hasOwnChoice = useGameSessionStore((state) => Object.keys(state.rollChoices).length > 0);
+  return (
+    <div className="border-t border-white/10 pt-2">
+      <p className="text-sm font-semibold text-slate-200">Мої кидки</p>
+      <SwitchRow label="Показувати вікно кидка атаки" isChecked={preferences.isAttackTrayShown} onChange={(isShown) => chooseRollPreference("isAttackTrayShown", isShown, campaign)} />
+      <SwitchRow label="Шкода сама після влучання" isChecked={preferences.isDamageAutoRolled} onChange={(isAuto) => chooseRollPreference("isDamageAutoRolled", isAuto, campaign)} />
+      {hasOwnChoice ? (
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-xs text-slate-400">Ви змінили це для себе на цьому пристрої.</p>
+          <Button type="button" variant="ghost" onClick={() => useGameSessionStore.setState({ rollChoices: {} })} className="h-11 shrink-0 px-3 text-sm">Як у кампанії</Button>
+        </div>
+      ) : (
+        <p className="text-xs text-slate-500">Зараз — як у правилах кампанії. Змінене тут діє лише для вас і лише на цьому пристрої.</p>
+      )}
+    </div>
   );
 }
 

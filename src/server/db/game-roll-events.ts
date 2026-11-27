@@ -10,7 +10,7 @@ import type { DamageDefenseNote } from "@/rules/damage-parts";
 import { applyDamageReviewChoices, parseDamageReviewChoices, resolveReviewedDamage, type DamageReview } from "@/rules/damage-review";
 import { parseCampaignHouseRules } from "@/rules/house-rules";
 import { takeRolledInitiative } from "@/server/db/game-combat";
-import { applyReviewedHeroDamage, buildHeroDamageReviewParts, changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
+import { applyReviewedHeroDamage, buildHeroDamageReview, changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
 import { findRoomHeroes, type RoomHero } from "@/server/db/game-room-heroes";
 import { findCreatureCommand } from "@/server/db/game-map-creatures";
 import { applyReviewedCreatureDamage, applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
@@ -171,11 +171,10 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
     const rolledSaves = draft.saves ? await applySaveTargets(tx, sessionId, draft.saves, splitSaveDamage(draft.roll, draft.saves.effect), heroes) : null;
     const saves = await damageHeroSaveRows(tx, sessionId, Number(seq), rolledSaves, heroes);
     const builtHeroTarget = draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null;
-    const heroReviewParts = isReviewed && builtHeroTarget?.kind === "damage" ? buildHeroDamageReviewParts(builtHeroTarget, draft.roll, heroes) : null;
-    const heroTarget = heroReviewParts ? builtHeroTarget : await changeHeroTargetHitPoints(tx, sessionId, Number(seq), builtHeroTarget, draft.roll, heroes);
+    const heroReview = isReviewed && builtHeroTarget?.kind === "damage" ? buildHeroDamageReview(builtHeroTarget, draft.roll, heroes) : null;
+    const heroTarget = heroReview ? builtHeroTarget : await changeHeroTargetHitPoints(tx, sessionId, Number(seq), builtHeroTarget, draft.roll, heroes);
     const targetDamage = effect.value?.damageDefenses.length || effect.value?.tempHpChange ? buildTargetDamage(effect.value.damage, effect.value.damageDefenses, effect.value.tempHpChange) : null;
-    const reviewParts = effect.value?.reviewParts ?? heroReviewParts;
-    const damageReview: DamageReview | null = reviewParts ? { parts: reviewParts, isPending: true } : null;
+    const damageReview = effect.value?.review ?? heroReview;
     await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: seq, updatedAt: new Date() } });
     const created = await tx.gameRollEvent.create({
       data: {

@@ -13,10 +13,15 @@ describe("house rules", () => {
     expect(names).toHaveLength(8);
   });
 
-  it("asks the GM to confirm player damage unless the campaign turned it off", () => {
-    expect(parseCampaignHouseRules(null).isDamageConfirmedByGm).toBe(true);
-    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: "no" }).isDamageConfirmedByGm).toBe(true);
-    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: false }).isDamageConfirmedByGm).toBe(false);
+  it("asks the GM to confirm player damage only when the campaign turned it on", () => {
+    expect(parseCampaignHouseRules(null).isDamageConfirmedByGm).toBe(false);
+    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: "yes" }).isDamageConfirmedByGm).toBe(false);
+    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: true }).isDamageConfirmedByGm).toBe(true);
+  });
+
+  it("shows the attack tray and rolls damage by itself unless the campaign turned them off", () => {
+    expect(parseCampaignHouseRules(null)).toMatchObject({ isAttackTrayShown: true, isDamageAutoRolled: true });
+    expect(parseCampaignHouseRules({ isAttackTrayShown: false, isDamageAutoRolled: false })).toMatchObject({ isAttackTrayShown: false, isDamageAutoRolled: false });
   });
 
   it("lets the hero override the campaign and merges several campaigns", () => {

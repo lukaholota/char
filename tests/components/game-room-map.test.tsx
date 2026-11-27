@@ -154,7 +154,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
     drawings: [],
     objects: [],
     walls: [],
-    lighting: "off", darkvisionLook: "grey", houseRules: { attunementLimit: null, magicSystem: null, damageTypes: [], isDamageConfirmedByGm: true }, lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
+    lighting: "off", darkvisionLook: "grey", houseRules: { attunementLimit: null, magicSystem: null, damageTypes: [], isDamageConfirmedByGm: true, isAttackTrayShown: true, isDamageAutoRolled: true }, lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
     viewedSceneId: 1,
     activeSceneId: null,
     scenes: [],

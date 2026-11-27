@@ -8,6 +8,8 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 
 export type RollVerdict = { tone: "good" | "bad" | "plain"; text: string };
 
+const VERDICT_WAIT_MS = 4000;
+
 /// Останній кидок з ціллю, кинутий з цього пристрою: лоток показує його результат, щойно кімната відповість.
 export const useRollVerdictStore = create<{ key: string | null; event: GameRollEventView | null }>(() => ({ key: null, event: null }));
 
@@ -21,6 +23,24 @@ export function settleRollVerdict(key: string, event: GameRollEventView) {
 
 export function clearRollVerdict(key?: string) {
   if (key === undefined || useRollVerdictStore.getState().key === key) useRollVerdictStore.setState({ key: null, event: null });
+}
+
+/// null — кімната не відповіла вчасно або з цього пристрою вже кинули інший кидок з ціллю.
+export function waitForRollVerdict(verdictKey: string): Promise<GameRollEventView | null> {
+  return new Promise((resolve) => {
+    const settle = (event: GameRollEventView | null) => {
+      unsubscribe();
+      clearTimeout(giveUp);
+      resolve(event);
+    };
+    const check = ({ key, event }: { key: string | null; event: GameRollEventView | null }) => {
+      if (key !== verdictKey) settle(null);
+      else if (event) settle(event);
+    };
+    const unsubscribe = useRollVerdictStore.subscribe(check);
+    const giveUp = setTimeout(() => settle(null), VERDICT_WAIT_MS);
+    check(useRollVerdictStore.getState());
+  });
 }
 
 /// Гравець бачить те саме, що й у журналі: влучання чи промах, кинуту шкоду, «повалений» — без КБ і хітів істоти.

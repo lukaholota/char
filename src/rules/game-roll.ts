@@ -1,4 +1,4 @@
-import { pickD20Value, type D20Mode } from "./dice-roll";
+import { limitRollTotal, pickD20Value, type D20Mode } from "./dice-roll";
 import { isDamageTypeKey, type DamageBonusPart } from "./damage-parts";
 import type { DamageTypeKey } from "./types";
 
@@ -38,8 +38,7 @@ export function computeGameRollTotal(roll: Pick<GameRoll, "d20Mode" | "groups" |
   const mainValues = roll.groups.flatMap((group) => group.values);
   const base = roll.d20Mode ? pickD20Value(mainValues, roll.d20Mode) : mainValues.reduce((sum, value) => sum + value, 0);
   const extraTotal = roll.extra.reduce((sum, die) => sum + die.sign * die.value, 0);
-  const rawTotal = base + extraTotal + roll.bonus;
-  return !roll.d20Mode && extraTotal < 0 ? Math.max(1, rawTotal) : rawTotal;
+  return limitRollTotal(base + extraTotal + roll.bonus, roll.d20Mode !== null, extraTotal);
 }
 
 export function findNaturalD20(roll: Pick<GameRoll, "d20Mode" | "groups">): "NAT_20" | "NAT_1" | null {

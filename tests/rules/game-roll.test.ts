@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { findGameRollTargetProblem } from "@/rules/game-roll-target";
 import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, hasRollResult, isGameRollVisibility, JOURNAL_MESSAGE_LENGTH, parseJournalMessage, type GameRoll } from "@/rules/game-roll";
 
 const attack: GameRoll = {
@@ -23,6 +24,13 @@ describe("computeGameRollTotal", () => {
   it("sums damage dice and never goes below 1 when a penalty die drags it down", () => {
     const damage = { d20Mode: null, groups: [{ sides: 6, values: [1] }], extra: [{ sides: 4, sign: -1 as const, label: "Скорочення", value: 4 }], bonus: 0 };
     expect(computeGameRollTotal(damage)).toBe(1);
+  });
+
+  it("keeps damage at 0 when a negative modifier outweighs the dice, so the room accepts it", () => {
+    const damage = { d20Mode: null, groups: [{ sides: 8, values: [6] }], extra: [], bonus: -10 };
+    expect(computeGameRollTotal(damage)).toBe(0);
+    expect(findGameRollTargetProblem({ d20Mode: null, total: computeGameRollTotal(damage) }, "damage")).toBeNull();
+    expect(computeGameRollTotal({ ...damage, d20Mode: "NORMAL", groups: [{ sides: 20, values: [3] }] })).toBe(-7);
   });
 
   it("sums several free dice groups", () => {

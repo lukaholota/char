@@ -3,7 +3,7 @@ import { buildHeroDamageOperationId, type StoredHeroTarget } from "@/rules/game-
 import type { StoredSaves } from "@/rules/game-roll-saves";
 import type { GameRoll } from "@/rules/game-roll";
 import { resolveTypedDamage, type DamageDefenseNote } from "@/rules/damage-parts";
-import { buildDamageReviewParts, type DamageReviewPart } from "@/rules/damage-review";
+import { buildDamageReview, type DamageReview } from "@/rules/damage-review";
 import { findHeroDamageDefense } from "@/rules/hero-save";
 import type { RoomHero } from "@/server/db/game-room-heroes";
 import { applyPersFieldOperationIn } from "@/server/db/offline-operations";
@@ -21,9 +21,9 @@ export async function changeHeroTargetHitPoints(tx: Prisma.TransactionClient, se
   return { ...target, ...adjusted, isAppliedToSheet: true };
 }
 
-export function buildHeroDamageReviewParts(target: StoredHeroTarget, roll: GameRoll, heroes: Heroes): DamageReviewPart[] {
+export function buildHeroDamageReview(target: StoredHeroTarget, roll: GameRoll, heroes: Heroes): DamageReview {
   const hero = heroes.get(target.persId);
-  return buildDamageReviewParts(roll, (damageType) => (hero ? findHeroDamageDefense(hero, damageType) : null));
+  return buildDamageReview(roll, (damageType) => (hero ? findHeroDamageDefense(hero, damageType) : null));
 }
 
 /// Герой, що вийшов із кімнати до підтвердження, лишає запис без змін на листі.

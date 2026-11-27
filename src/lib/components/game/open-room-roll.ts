@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { useDiceUIStore, type DiceRollContext } from "@/lib/stores/diceUIStore";
+import type { DiceRollContext } from "@/lib/stores/diceUIStore";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { canCastOnArea, startAreaCast, warnAreaWithoutGrid } from "./area-cast";
 import { useGameSessionLiveStore } from "./game-session-live-store";
 import { startMapTargeting } from "./map-targeting";
+import { openRollOrRollQuietly } from "./quiet-attack-roll";
 
 let ownCreatureId: number | null = null;
 
@@ -36,5 +37,5 @@ export function useCanRollTargetSave(): boolean {
 }
 
 function openTargetedRoll(roll: DiceRollContext) {
-  if (!startMapTargeting(roll)) useDiceUIStore.getState().openRoll(roll);
+  if (!startMapTargeting(roll)) openRollOrRollQuietly(roll);
 }

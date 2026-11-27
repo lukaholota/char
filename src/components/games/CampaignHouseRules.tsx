@@ -17,7 +17,9 @@ export function describeCampaignHouseRules(rules: CampaignHouseRules): string[] 
     rules.attunementLimit === null ? null : `Предметів із налаштуванням: до ${rules.attunementLimit}`,
     rules.magicSystem === "POINTS" ? `Магія: ${MAGIC_SYSTEM_LABELS.POINTS}` : null,
     rules.damageTypes.length ? `Свої типи шкоди: ${rules.damageTypes.join(", ")}` : null,
-    rules.isDamageConfirmedByGm ? null : "Шкода гравців знімається одразу, без перевірки майстра",
+    rules.isDamageConfirmedByGm ? "Майстер перевіряє шкоду гравців" : null,
+    rules.isAttackTrayShown ? null : "Кидок атаки — без вікна, лише результат",
+    rules.isDamageAutoRolled ? null : "Шкоду після влучання гравець кидає сам",
   ].filter((line): line is string => line !== null);
 }
 
@@ -78,7 +80,9 @@ function CampaignHouseRulesForm({ view, onDone }: { view: GameSessionView; onDon
         hint={`Через кому, до ${CUSTOM_DAMAGE_TYPES_LIMIT}. Гравці зможуть обрати їх для додаткової шкоди зброї.`}
       />
       <SwitchRow label="Майстер перевіряє шкоду гравців перед тим, як зняти хіти" isChecked={rules.isDamageConfirmedByGm} onChange={(isDamageConfirmedByGm) => setRules({ ...rules, isDamageConfirmedByGm })} />
-      <p className="text-xs text-slate-500">Гравець може змінити ліміт і магію для свого героя на листі персонажа.</p>
+      <SwitchRow label="Показувати вікно кидка атаки" isChecked={rules.isAttackTrayShown} onChange={(isAttackTrayShown) => setRules({ ...rules, isAttackTrayShown })} />
+      <SwitchRow label="Шкода сама після влучання" isChecked={rules.isDamageAutoRolled} onChange={(isDamageAutoRolled) => setRules({ ...rules, isDamageAutoRolled })} />
+      <p className="text-xs text-slate-500">Гравець може змінити ліміт і магію для свого героя на листі персонажа, а вікно атаки й шкоду — для себе в цій кампанії.</p>
       <div className="grid grid-cols-2 gap-2">
         <Button type="submit" disabled={isPending} className="h-12 text-base">Зберегти</Button>
         <Button type="button" variant="ghost" onClick={onDone} className="h-12 text-base">Скасувати</Button>

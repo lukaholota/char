@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyDamageDefense, applyDamageReviewChoices, buildDamageReviewParts, parseDamageReviewChoices, resolveReviewedDamage } from "@/rules/damage-review";
+import { applyDamageDefense, applyDamageReviewChoices, buildDamageReview, buildDamageReviewParts, parseDamageReviewChoices, resolveReviewedDamage } from "@/rules/damage-review";
 
 const flaming = { damageType: "SLASHING" as const, groups: [{ values: [6] }], extra: [{ sign: 1 as const, label: "Вогняний клинок", value: 5, damageType: "FIRE" as const }], bonus: 3, total: 14 };
 
@@ -10,6 +10,12 @@ describe("перевірка шкоди майстром", () => {
       { damageType: "FIRE", label: "Вогняний клинок", amount: 5, defense: "resistant" },
     ]);
     expect(buildDamageReviewParts({ groups: [], extra: [], bonus: 0, total: 0 }, () => "immune")).toEqual([{ damageType: null, label: "", amount: 0, defense: null }]);
+  });
+
+  it("запам'ятовує захисти цілі за всіма типами, щоб зміна типу брала захист зі статблоку", () => {
+    const review = buildDamageReview(flaming, (type) => (type === "FIRE" ? "immune" : type === "COLD" ? "vulnerable" : null));
+    expect(review.defenses).toEqual({ FIRE: "immune", COLD: "vulnerable" });
+    expect(review.isPending).toBe(true);
   });
 
   it("імунітет обнуляє, опір ділить униз, вразливість подвоює", () => {
@@ -35,6 +41,9 @@ describe("перевірка шкоди майстром", () => {
     expect(parseDamageReviewChoices([{ amount: 3, defense: "absorb" }], 1)).toBeNull();
     expect(parseDamageReviewChoices([null], 1)).toBeNull();
     expect(parseDamageReviewChoices("all", 1)).toBeNull();
+    expect(parseDamageReviewChoices([{ amount: 3, defense: null, damageType: "COLD" }], 1)).toEqual([{ amount: 3, defense: null, damageType: "COLD" }]);
+    expect(parseDamageReviewChoices([{ amount: 3, defense: null, damageType: null }], 1)).toEqual([{ amount: 3, defense: null, damageType: null }]);
+    expect(parseDamageReviewChoices([{ amount: 3, defense: null, damageType: "Світло" }], 1)).toBeNull();
   });
 
   it("бере типи рядків зі збереженого кидка, а числа — від майстра", () => {
@@ -43,5 +52,11 @@ describe("перевірка шкоди майстром", () => {
       { damageType: "SLASHING", label: "", amount: 2, defense: null },
       { damageType: "FIRE", label: "Вогняний клинок", amount: 5, defense: "immune" },
     ]);
+  });
+
+  it("майстер може змінити тип рядка — нотатка журналу йде з новим типом", () => {
+    const parts = applyDamageReviewChoices(buildDamageReviewParts(flaming, () => null), [{ amount: 9, defense: null }, { amount: 5, defense: "resistant", damageType: "COLD" }]);
+    expect(parts[1]).toMatchObject({ damageType: "COLD", label: "Вогняний клинок" });
+    expect(resolveReviewedDamage(parts)).toEqual({ damage: 11, notes: [{ damageType: "COLD", defense: "resistant", before: 5, after: 2 }] });
   });
 });

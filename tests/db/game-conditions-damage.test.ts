@@ -393,7 +393,7 @@ describe("майстер підтверджує шкоду гравця", () => 
     const { gm, player, sessionId, creatureId, seq } = await rollPendingDamage();
     expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(20);
     const [forGm] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, seq - 1, 1);
-    expect(forGm.damageReview).toEqual({ isPending: true, parts: [{ damageType: "SLASHING", label: "", amount: 4, defense: null }, { damageType: "FIRE", label: "Вогонь", amount: 5, defense: null }] });
+    expect(forGm.damageReview).toEqual({ isPending: true, defenses: {}, parts: [{ damageType: "SLASHING", label: "", amount: 4, defense: null }, { damageType: "FIRE", label: "Вогонь", amount: 5, defense: null }] });
     const [forPlayer] = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, seq - 1, 1);
     expect(forPlayer.damageReview).toEqual({ isPending: true, parts: [] });
   });

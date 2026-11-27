@@ -8,6 +8,11 @@ export function countD20Dice(mode: D20Mode): number {
   return mode === "NORMAL" ? 1 : 2;
 }
 
+/// Кидок без к20 — це кількість (шкода, лікування): не нижче 0, а штраф кубиком стану лишає хоч 1.
+export function limitRollTotal(rawTotal: number, isD20: boolean, extraTotal: number): number {
+  return isD20 ? rawTotal : Math.max(extraTotal < 0 ? 1 : 0, rawTotal);
+}
+
 export function pickD20Value(values: readonly number[], mode: D20Mode): number {
   if (mode === "ADVANTAGE") return Math.max(...values);
   if (mode === "DISADVANTAGE") return Math.min(...values);

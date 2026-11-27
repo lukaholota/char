@@ -40,7 +40,7 @@ describe("шкода після атаки", () => {
 describe("лоток у кімнаті", () => {
   beforeEach(() => {
     vi.useFakeTimers();
-    useGameSessionStore.setState({ active: { id: 1, name: "Кімната" }, isDamageAutoRolled: true });
+    useGameSessionStore.setState({ active: { id: 1, name: "Кімната" } });
     clearRollVerdict();
   });
   afterEach(() => {
@@ -49,9 +49,9 @@ describe("лоток у кімнаті", () => {
     useGameSessionStore.setState({ active: null });
   });
 
-  const renderAttack = (baseValue: number) => {
+  const renderAttack = (baseValue: number, isAuto = true) => {
     const rollDamage = vi.fn();
-    renderHook(() => useAutoDamageAfterAttack({ context: sword, activeAction: attackAction, outcome: attackOutcome(baseValue), isRolling: false }, rollDamage));
+    renderHook(() => useAutoDamageAfterAttack({ context: sword, activeAction: attackAction, outcome: attackOutcome(baseValue), isRolling: false }, rollDamage, isAuto));
     return rollDamage;
   };
 
@@ -72,9 +72,8 @@ describe("лоток у кімнаті", () => {
     watchRollVerdict("silent");
     const onSilence = renderAttack(15);
     await act(() => vi.advanceTimersByTimeAsync(5000));
-    useGameSessionStore.setState({ isDamageAutoRolled: false });
     clearRollVerdict();
-    const whenOff = renderAttack(16);
+    const whenOff = renderAttack(16, false);
     await act(() => vi.advanceTimersByTimeAsync(5000));
     expect([onMiss, onSilence, whenOff].map((roll) => roll.mock.calls.length)).toEqual([0, 0, 0]);
   });

@@ -15,6 +15,7 @@ import { Switch } from "@/components/ui/switch";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { isAttackWithDamage, useAutoDamageAfterAttack, useCloseTrayAfterDamage } from "./useAutoDamage";
+import { chooseRollPreference, useCampaignRollPreferences, useRollPreferences } from "./useRollPreferences";
 
 type Props = {
   context: DiceRollContext;
@@ -49,7 +50,8 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
     setAddedAction(action);
     onRoll(action, "NORMAL");
   };
-  useAutoDamageAfterAttack({ context, activeAction, outcome, isRolling }, rollDamage);
+  const isDamageAutoRolled = useRollPreferences(useCampaignRollPreferences()).isDamageAutoRolled;
+  useAutoDamageAfterAttack({ context, activeAction, outcome, isRolling }, rollDamage, isDamageAutoRolled);
   useCloseTrayAfterDamage({ context, activeAction, outcome, isRolling });
   return (
     <div className="space-y-3 px-4">
@@ -107,11 +109,12 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
 
 function AutoDamageSwitch() {
   const isInRoom = useGameSessionStore((state) => state.active !== null);
-  const isOn = useGameSessionStore((state) => state.isDamageAutoRolled);
+  const campaign = useCampaignRollPreferences();
+  const isOn = useRollPreferences(campaign).isDamageAutoRolled;
   if (!isInRoom) return null;
-  const toggle = (isDamageAutoRolled: boolean) => {
-    useGameSessionStore.setState({ isDamageAutoRolled });
-    captureGameEvent("game_damage_auto_toggled", { is_on: isDamageAutoRolled });
+  const toggle = (isAuto: boolean) => {
+    chooseRollPreference("isDamageAutoRolled", isAuto, campaign);
+    captureGameEvent("game_damage_auto_toggled", { is_on: isAuto });
   };
   return (
     <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm text-slate-300">

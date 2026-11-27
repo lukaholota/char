@@ -1,6 +1,6 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
-import { countD20Dice, parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
+import { countD20Dice, limitRollTotal, parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
 import { parseWeaponDamageFormula } from "@/rules/weapon-damage-formula";
 import type { CreatureSaveAction, CreatureSaveEffect } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
@@ -206,14 +206,26 @@ export type DiceRollOutcome = PendingRollMeta & {
   total: number;
 };
 
+export function buildPendingRollMeta(action: DiceRollAction, d20Mode: D20Mode): PendingRollMeta {
+  return {
+    actionKey: action.key,
+    label: action.label,
+    bonus: action.bonus,
+    d20Mode: action.isD20 ? d20Mode : null,
+    mainDiceCount: countMainDice(action, d20Mode),
+    extraDice: action.extraDice ?? [],
+    ...(action.damageType ? { damageType: action.damageType } : {}),
+    ...(action.bonusParts?.length ? { bonusParts: action.bonusParts } : {}),
+  };
+}
+
 /// Кубики приходять у порядку нотацій: спершу основні (з другим типом шкоди), тоді додаткові стану.
 export function buildRollOutcome(meta: PendingRollMeta, values: number[]): DiceRollOutcome {
   const dieValues = values.slice(0, meta.mainDiceCount);
   const extraValues = meta.extraDice.map((die, index) => ({ ...die, value: values[meta.mainDiceCount + index] ?? 0 }));
   const baseValue = meta.d20Mode ? pickD20Value(dieValues, meta.d20Mode) : dieValues.reduce((sum, value) => sum + value, 0);
   const extraTotal = extraValues.reduce((sum, die) => sum + die.sign * die.value, 0);
-  const rawTotal = baseValue + extraTotal + meta.bonus;
-  const total = !meta.d20Mode && extraTotal < 0 ? Math.max(1, rawTotal) : rawTotal;
+  const total = limitRollTotal(baseValue + extraTotal + meta.bonus, meta.d20Mode !== null, extraTotal);
   return { ...meta, dieValues, extraValues, baseValue, total };
 }
 
